@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miles Andrew Rauch | Marine Engineering Cadet</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --navy:#0b2540;
+    --steel:#14406b;
+    --paper:#f6f4ef;
+    --paper-dim:#eeebe3;
+    --ink:#23262b;
+    --ink-soft:#5b6066;
+    --brass:#a8763e;
+    --brass-light:#c79a5e;
+    --hairline:#d8d2c4;
+    --white:#ffffff;
+
+    --display:'Oswald',sans-serif;
+    --body:'Source Sans 3',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+}
+
+body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    overflow-x:hidden;
+}
+
+img{ max-width:100%; }
+
+a{ color:inherit; }
+
+/* ============ NAV ============ */
+nav{
+    background:var(--navy);
+    padding:0 20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    border-bottom:2px solid var(--brass);
+}
+.nav-inner{
+    max-width:1040px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:58px;
+}
+.nav-mark{
+    font-family:var(--mono);
+    color:var(--brass-light);
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+}
+.nav-links{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+}
+nav a.navlink{
+    color:#dfe6ee;
+    text-decoration:none;
+    font-family:var(--mono);
+    font-size:0.74rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:color 0.2s;
+    white-space:nowrap;
+}
+nav a.navlink:hover{ color:var(--brass-light); }
+
+/* hamburger button (hidden on desktop) */
+.nav-burger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:44px;
+    height:44px;
+    margin-right:-10px;
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+.nav-burger span{
+    display:block;
+    width:24px;
+    height:2px;
+    background:#dfe6ee;
+    border-radius:2px;
+    transition:transform 0.25s, opacity 0.2s;
+}
+
+/* ============ HERO / NAMEPLATE ============ */
+header.hero{
+    background:
+        linear-gradient(180deg, rgba(11,37,64,0.94) 0%, rgba(11,37,64,0.97) 100%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 28px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 28px),
+        var(--navy);
+    color:var(--white);
+    padding:64px 20px 56px;
+}
+.hero-inner{
+    max-width:1040px;
+    margin:0 auto;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.hero-photo-wrap{
+    flex-shrink:0;
+}
+.hero-photo-wrap img{
+    width:168px;
+    height:168px;
+    border-radius:6px;
+    object-fit:cover;
+    border:3px solid var(--brass-light);
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+}
+.hero-text{ flex:1; min-width:260px; }
+.eyebrow{
+    font-family:var(--mono);
+    font-size:0.74rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:10px;
+}
+.hero-text h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(1.9rem, 7vw, 2.6rem);
+    letter-spacing:0.01em;
+    line-height:1.1;
+}
+.hero-role{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(1.05rem, 4vw, 1.2rem);
+    color:#cdd8e3;
+    margin-top:6px;
+    letter-spacing:0.01em;
+}
+
+/* spec plate */
+.plate{
+    margin-top:26px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:0;
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:4px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.04);
+}
+.plate-item{
+    padding:12px 16px;
+    border-right:1px solid rgba(255,255,255,0.14);
+    border-bottom:1px solid rgba(255,255,255,0.14);
+}
+.plate-item:last-child{ border-right:none; }
+.plate-label{
+    font-family:var(--mono);
+    font-size:0.64rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:4px;
+}
+.plate-value{
+    font-family:var(--mono);
+    font-size:0.84rem;
+    color:#eef1f4;
+    word-break:break-word;
+}
+.plate-value a{ color:#eef1f4; text-decoration:none; }
+.plate-value a:hover{ color:var(--brass-light); }
+
+/* ============ LAYOUT ============ */
+.container{
+    max-width:1040px;
+    margin:auto;
+    padding:48px 20px;
+}
+
+section{
+    background:var(--white);
+    padding:38px 42px;
+    margin-bottom:28px;
+    border-radius:8px;
+    border:1px solid var(--hairline);
+    box-shadow:0 1px 3px rgba(11,37,64,0.04);
+    scroll-margin-top:72px;
+}
+
+.section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:22px;
+    border-bottom:2px solid var(--navy);
+    padding-bottom:12px;
+}
+.section-head .num{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--brass);
+    letter-spacing:0.05em;
+}
+h2{
+    font-family:var(--display);
+    font-weight:600;
+    color:var(--navy);
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+}
+h3{
+    font-family:var(--display);
+    font-weight:500;
+    color:var(--steel);
+    font-size:1.12rem;
+    margin-bottom:10px;
+    letter-spacing:0.01em;
+}
+
+p{ color:var(--ink); margin-bottom:0; }
+p + p{ margin-top:14px; }
+
+ul.speclist{
+    list-style:none;
+    margin-top:6px;
+}
+ul.speclist li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:9px;
+    color:var(--ink);
+}
+ul.speclist li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:9px;
+    width:8px;
+    height:2px;
+    background:var(--brass);
+}
+
+.subsection{
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid var(--hairline);
+}
+.subsection:first-of-type{
+    margin-top:0;
+    padding-top:0;
+    border-top:none;
+}
+
+/* skills as spec rows */
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:10px 24px;
+}
+.skill-row{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    padding:9px 0;
+    border-bottom:1px solid var(--paper-dim);
+    font-size:0.96rem;
+}
+.skill-row .tag{
+    font-family:var(--mono);
+    font-size:0.66rem;
+    color:var(--brass);
+    letter-spacing:0.05em;
+    flex-shrink:0;
+}
+
+/* gallery */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+    margin-top:6px;
+}
+.gallery figure{ margin:0; }
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:6px;
+    border:1px solid var(--hairline);
+    display:block;
+}
+.gallery figcaption{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    color:var(--ink-soft);
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    margin-top:8px;
+}
+
+.button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--navy);
+    color:var(--white);
+    padding:12px 22px;
+    border-radius:5px;
+    text-decoration:none;
+    margin-top:18px;
+    font-family:var(--mono);
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    transition:background 0.2s;
+}
+.button:hover{ background:var(--steel); }
+
+.martial-photo{
+    width:100%;
+    max-width:420px;
+    border-radius:8px;
+    border:1px solid var(--hairline);
+    display:block;
+    margin-bottom:20px;
+}
+
+.pill-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:8px;
+}
+.pill{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    background:var(--paper-dim);
+    border:1px solid var(--hairline);
+    color:var(--ink);
+    padding:7px 14px;
+    border-radius:4px;
+}
+
+.two-col{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:34px;
+}
+@media (max-width:680px){
+    .two-col{ grid-template-columns:1fr; }
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:18px;
+}
+.contact-item .plate-label{ color:var(--brass); }
+.contact-item .plate-value{ color:var(--ink); font-size:0.92rem; }
+.contact-item a{ text-decoration:none; color:var(--steel); }
+.contact-item a:hover{ text-decoration:underline; }
+
+footer{
+    text-align:center;
+    padding:36px 20px 48px;
+    color:var(--ink-soft);
+    font-family:var(--mono);
+    font-size:0.74rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+}
+
+/* ===== tablet / mobile nav ===== */
+@media (max-width:720px){
+    .nav-inner{
+        height:auto;
+        min-height:58px;
+        flex-wrap:wrap;
+        padding:0;
+    }
+    .nav-burger{ display:flex; }
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        width:100%;
+        gap:0;
+        padding-bottom:8px;
+    }
+    nav.open .nav-links{ display:flex; }
+    nav a.navlink{
+        font-size:0.82rem;
+        padding:14px 2px;
+        width:100%;
+        border-top:1px solid rgba(255,255,255,0.10);
+    }
+    nav.open .nav-burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    nav.open .nav-burger span:nth-child(2){ opacity:0; }
+    nav.open .nav-burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
+
+/* ===== phones ===== */
+@media (max-width:640px){
+    .hero{ padding:48px 18px 44px; }
+    .hero-inner{ flex-direction:column; text-align:center; gap:26px; }
+    .hero-photo-wrap img{ width:140px; height:140px; }
+    .hero-text{ min-width:0; width:100%; }
+    .plate{ text-align:left; }
+    .container{ padding:32px 16px; }
+    section{ padding:26px 20px; }
+    .section-head{ gap:10px; }
+    h2{ font-size:1.32rem; }
+    .skills-grid{ grid-template-columns:1fr; gap:0; }
+    .gallery img{ height:200px; }
+}
+
+/* ===== small phones ===== */
+@media (max-width:400px){
+    .plate{ grid-template-columns:1fr; }
+    .plate-item{ border-right:none; }
+    section{ padding:22px 16px; }
+    .pill{ font-size:0.74rem; padding:6px 11px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-inner">
+<div class="nav-mark">M.A. RAUCH — CV</div>
+<button class="nav-burger" aria-label="Toggle navigation menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-links">
+<a class="navlink" href="#about">Profile</a>
+<a class="navlink" href="#skills">Skills</a>
+<a class="navlink" href="#marine">Maritime</a>
+<a class="navlink" href="#projects">Projects</a>
+<a class="navlink" href="#leadership">Leadership</a>
+<a class="navlink" href="#contact">Contact</a>
+</div>
+</div>
+</nav>
+
+<header class="hero">
+<div class="hero-inner">
+<div class="hero-photo-wrap">
+<img src="MollyAndMe.jpeg" alt="Miles Andrew Rauch">
+</div>
+<div class="hero-text">
+<div class="eyebrow">Curriculum Vitae</div>
+<h1>Miles Andrew Rauch</h1>
+<div class="hero-role">Aspiring Marine Engineering Cadet</div>
+
+<div class="plate">
+<div class="plate-item">
+<div class="plate-label">Date of Birth</div>
+<div class="plate-value">09 September 2009</div>
+</div>
+<div class="plate-item">
+<div class="plate-label">Location</div>
+<div class="plate-value">Spain</div>
+</div>
+<div class="plate-item">
+<div class="plate-label">Nationality</div>
+<div class="plate-value">EU Citizen</div>
+</div>
+<div class="plate-item">
+<div class="plate-label">Email</div>
+<div class="plate-value"><a href="mailto:milesrauch2009@gmail.com">milesrauch2009@gmail.com</a></div>
+</div>
+<div class="plate-item">
+<div class="plate-label">Phone</div>
+<div class="plate-value"><a href="tel:+34690293508">+34 690 29 35 08</a></div>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<div class="container">
+
+<section id="about">
+<div class="section-head"><span class="num">01</span><h2>Personal Profile</h2></div>
+
+<p>
+Motivated and hands-on aspiring Marine Engineering Cadet with a strong interest in marine engineering, mechanical systems, and practical problem solving. Through independent engineering projects, marine industry exposure, programming, and manufacturing experience, I have developed a strong foundation in technical skills and engineering principles.
+</p>
+
+<p>
+I am seeking to pursue a career within the maritime and superyacht industry, where I can continue developing my practical engineering abilities while contributing positively to vessel operations and maintenance.
+</p>
+
+<div class="subsection">
+<h3>Education</h3>
+<p>Completed secondary education in Spain. Moving to UK for Pre-cadetship for the Merchant Navy Level 3 Diploma at brockenhurst</p>
+<p style="margin-top:10px;"><strong>Key areas of study and interest:</strong></p>
+<div class="pill-row">
+<span class="pill">Computer Science</span>
+<span class="pill">Physics</span>
+<span class="pill">Mathematics</span>
+<span class="pill">Engineering &amp; Technology</span>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="section-head"><span class="num">02</span><h2>Technical Skills</h2></div>
+
+<div class="skills-grid">
+<div class="skill-row"><span class="tag">01</span>Mechanical problem solving</div>
+<div class="skill-row"><span class="tag">02</span>Basic engineering principles</div>
+<div class="skill-row"><span class="tag">03</span>Fusion 360 CAD design</div>
+<div class="skill-row"><span class="tag">04</span>3D modelling &amp; prototyping</div>
+<div class="skill-row"><span class="tag">05</span>3D printing &amp; additive manufacturing</div>
+<div class="skill-row"><span class="tag">06</span>Python programming</div>
+<div class="skill-row"><span class="tag">07</span>Computer hardware &amp; troubleshooting</div>
+<div class="skill-row"><span class="tag">08</span>Basic electronics &amp; wiring</div>
+<div class="skill-row"><span class="tag">09</span>Technical research &amp; documentation</div>
+<div class="skill-row"><span class="tag">10</span>Digital design &amp; fabrication</div>
+</div>
+</section>
+
+<section id="marine">
+<div class="section-head"><span class="num">03</span><h2>Maritime Experience</h2></div>
+
+<h3>Marine Engineering Work Experience</h3>
+<p>
+Worked alongside my father, a professional marine engineer, for several weeks, gaining practical exposure to:
+</p>
+<ul class="speclist">
+<li>Marine engine room operations</li>
+<li>Vessel maintenance procedures</li>
+<li>Engineering safety practices</li>
+<li>Mechanical systems and components</li>
+<li>Workshop procedures and professional working environments</li>
+</ul>
+</section>
+
+<section id="projects">
+<div class="section-head"><span class="num">04</span><h2>Engineering Projects</h2></div>
+
+<div class="subsection">
+<h3>1973 SEAT 600 E Restoration Project</h3>
+<p>
+Personally undertaking the restoration of a classic 1973 SEAT 600 E, involving:
+</p>
+<ul class="speclist">
+<li>Mechanical diagnosis and repair</li>
+<li>Research and technical investigation</li>
+<li>Project planning and management</li>
+<li>Parts sourcing and refurbishment</li>
+<li>Practical workshop skills</li>
+<li>Long term engineering project management</li>
+</ul>
+
+<div class="gallery">
+<figure>
+<img src="Car1.jpg" alt="1973 SEAT 600 E before restoration">
+<figcaption>Before restoration</figcaption>
+</figure>
+<figure>
+<img src="Car2.jpeg" alt="1973 SEAT 600 E during restoration">
+<figcaption>Restoration in progress</figcaption>
+</figure>
+</div>
+
+<a class="button" href="https://youtube.com/@milesrauch?si=q_WUdXiirOR0U0V1">Project YouTube Channel ↗</a>
+</div>
+
+<div class="subsection">
+<h3>CAD Design and Manufacturing</h3>
+<p>
+Extensive experience designing and manufacturing custom parts and models using CAD software and additive manufacturing techniques, including:
+</p>
+<ul class="speclist">
+<li>Fusion 360 modelling</li>
+<li>Functional component design</li>
+<li>Prototype development</li>
+<li>Multi-material 3D printing</li>
+<li>Engineering-focused fabrication projects</li>
+</ul>
+</div>
+
+<div class="subsection">
+<h3>Programming</h3>
+<p>
+Developing software engineering skills through independent study and projects using Python, focusing on:
+</p>
+<ul class="speclist">
+<li>Problem solving</li>
+<li>Automation concepts</li>
+<li>Software structure</li>
+<li>Logical thinking</li>
+<li>Technical development</li>
+</ul>
+</div>
+</section>
+
+<section id="leadership">
+<div class="section-head"><span class="num">05</span><h2>Leadership Experience</h2></div>
+
+<div class="two-col">
+<div>
+<h3>Martial Arts Instructor</h3>
+<p>
+Experience instructing martial arts students, developing strong skills in:
+</p>
+<ul class="speclist">
+<li>Leadership</li>
+<li>Communication</li>
+<li>Discipline</li>
+<li>Responsibility</li>
+<li>Teamwork</li>
+<li>Teaching and mentoring</li>
+<li>Working under pressure</li>
+</ul>
+</div>
+<div>
+<img class="martial-photo" src="MartialArts.jpg" alt="Miles Andrew Rauch teaching martial arts">
+</div>
+</div>
+</section>
+
+<section>
+<div class="section-head"><span class="num">06</span><h2>Qualifications &amp; Certifications</h2></div>
+<div class="pill-row">
+<span class="pill">PADI Advanced Open Water Diver</span>
+</div>
+</section>
+
+<section>
+<div class="two-col">
+<div>
+<div class="section-head"><span class="num">07</span><h2>Languages</h2></div>
+<ul class="speclist">
+<li>English — C1 Proficiency</li>
+<li>Spanish — Fluent</li>
+</ul>
+</div>
+<div>
+<div class="section-head"><span class="num">08</span><h2>Interests</h2></div>
+<div class="pill-row">
+<span class="pill">Marine engineering</span>
+<span class="pill">Superyacht engineering</span>
+<span class="pill">Mechanical engineering</span>
+<span class="pill">Vehicle restoration</span>
+<span class="pill">CAD design</span>
+<span class="pill">3D printing</span>
+<span class="pill">Programming</span>
+<span class="pill">Marine technology</span>
+<span class="pill">Diving</span>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="section-head"><span class="num">09</span><h2>Personal Qualities</h2></div>
+<div class="pill-row">
+<span class="pill">Highly motivated</span>
+<span class="pill">Practical &amp; hands-on</span>
+<span class="pill">Quick learner</span>
+<span class="pill">Reliable &amp; responsible</span>
+<span class="pill">Strong work ethic</span>
+<span class="pill">Adaptable</span>
+<span class="pill">Team player</span>
+<span class="pill">Detail oriented</span>
+<span class="pill">Enthusiastic about engineering &amp; maritime careers</span>
+</div>
+</section>
+
+<section>
+<div class="section-head"><span class="num">10</span><h2>Career Objective</h2></div>
+<p>
+To pursue a career as a Marine Engineering Cadet within the maritime and superyacht industry, where I can continue developing my technical knowledge, practical skills, and professional experience while contributing to the safe and efficient operation of vessels.
+</p>
+</section>
+
+<section id="contact">
+<div class="section-head"><span class="num">11</span><h2>Contact</h2></div>
+
+<div class="contact-grid">
+<div class="contact-item">
+<div class="plate-label">Name</div>
+<div class="plate-value">Miles Andrew Rauch</div>
+</div>
+<div class="contact-item">
+<div class="plate-label">Email</div>
+<div class="plate-value"><a href="mailto:milesrauch2009@gmail.com">milesrauch2009@gmail.com</a></div>
+</div>
+<div class="contact-item">
+<div class="plate-label">Phone</div>
+<div class="plate-value"><a href="tel:+34690293508">+34 690 29 35 08</a></div>
+</div>
+<div class="contact-item">
+<div class="plate-label">Languages</div>
+<div class="plate-value">English (C1), Spanish (Fluent)</div>
+</div>
+<div class="contact-item">
+<div class="plate-label">Nationality</div>
+<div class="plate-value">EU Citizen holding Dutch and South African passport</div>
+</div>
+<div class="contact-item">
+<div class="plate-label">GitHub</div>
+<div class="plate-value"><a href="https://MilesRauch.github.io" target="_blank">MilesRauch.github.io</a></div>
+</div>
+</div>
+</section>
+
+</div>
+
+<footer>
+Miles Andrew Rauch &middot; Marine Engineering Cadet Portfolio
+</footer>
+
+<script>
+(function(){
+    var nav = document.querySelector('nav');
+    var burger = document.querySelector('.nav-burger');
+    if(!nav || !burger) return;
+    function setOpen(open){
+        nav.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function(e){
+        e.stopPropagation();
+        setOpen(!nav.classList.contains('open'));
+    });
+    nav.querySelectorAll('.nav-links a').forEach(function(a){
+        a.addEventListener('click', function(){ setOpen(false); });
+    });
+    document.addEventListener('click', function(e){
+        if(nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false);
+    });
+})();
+</script>
+
+</body>
+</html>
